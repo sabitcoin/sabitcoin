@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+#DEB_MAKE_CHECK_TARGET = test_sabitcoin
+#build/sabitcoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_sabitcoin)
+
+DEB_INSTALL_EXAMPLES_sabitcoind += debian/examples/*
+DEB_INSTALL_MANPAGES_sabitcoind += debian/manpages/*
+
+%:
+	dh --with bash-completion $@
+
+override_dh_auto_build:
+	cd src; $(MAKE) -f makefile.unix sabitcoind
+	$(MAKE)
+
+override_dh_auto_clean:
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f sabitcoin-qt; fi
+	cd src; $(MAKE) -f makefile.unix clean
+
+override_dh_auto_configure:
+	qmake sabitcoin-qt.pro USE_QRCODE=1
+
+override_dh_auto_test:
+	cd src; $(MAKE) -f makefile.unix test_sabitcoin
+	src/test_sabitcoin
+
+# Ensure wrapper is set executable
+binary-post-install/sabitcoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/sabitcoind
+binary-post-install/sabitcoin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/sabitcoin-qt

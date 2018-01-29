@@ -1,0 +1,9 @@
+Building Sabitcoin
+
+See doc/readme-qt.rst for instructions on building Sabitcoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Sabitcoin.
+
+See doc/build-*.txt for instructions on building sabitcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Sabitcoin.

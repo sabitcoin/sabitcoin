@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Sabitcoin
+Comment=Sabitcoin P2P Cryptocurrency
+Comment[fr]=Sabitcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Sabitcoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/sabitcoin-qt %u
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/sabitcoin128.png
+MimeType=x-scheme-handler/sabitcoin;
+Categories=Office;

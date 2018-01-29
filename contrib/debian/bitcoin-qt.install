@@ -1,0 +1,6 @@
+sabitcoin-qt usr/bin
+share/pixmaps/sabitcoin32.xpm usr/share/pixmaps
+share/pixmaps/sabitcoin16.xpm usr/share/pixmaps
+share/pixmaps/sabitcoin128.png usr/share/pixmaps
+debian/sabitcoin-qt.desktop usr/share/applications
+debian/sabitcoin-qt.protocol usr/share/kde4/services/
